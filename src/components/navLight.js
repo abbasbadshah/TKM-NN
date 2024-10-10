@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logoDark from "../assets/images/logo-dark.png";
-import logoLight from "../assets/images/logo-light.png";
+// import logoDark from "../assets/images/logo-dark.png";
+// import logoLight from "../assets/images/logo-light.png";
 import { Link as Link1 } from "react-scroll";
 
 export default function NavLight() {
@@ -20,12 +20,13 @@ export default function NavLight() {
   }, []);
 
   return (
-    <nav className={`navbar ${scroll ? "is-sticky" : ""}`} id="navbar">
+    <nav 
+      className={`navbar ${scroll ? "is-sticky bg-[#847112] text-white" : ""}`} 
+      id="navbar"
+    >
       <div className="container relative flex flex-wrap items-center justify-between">
         <Link className="navbar-brand md:me-8" to="/">
-          <span className="inline-block dark:hidden">
-            {/* <img src={logoDark} className="l-dark" alt=""/>
-                        <img src={logoLight} className="l-light" alt=""/> */}
+          <span className={scroll ? "hidden" : "inline-block dark:hidden"}>
             <h1 className="text-black font-bold text-2xl l-dark">
               TKM Noorani Nagar
             </h1>
@@ -33,23 +34,15 @@ export default function NavLight() {
               TKM Noorani Nagar
             </h1>
           </span>
-          <img src={logoLight} className="hidden dark:inline-block" alt="" />
+          <span className={scroll ? "inline-block" : "hidden dark:inline-block"}>
+            <h1 className="text-white font-bold text-2xl">
+              TKM Noorani Nagar
+            </h1>
+          </span>
         </Link>
 
-        {/* <div className="nav-icons flex items-center lg_992:order-2 ms-auto md:ms-8">
-                    <ul className="list-none menu-social mb-0">
-                        <li className="inline">
-                            <Link to="" className="h-8 px-4 text-[12px] tracking-wider inline-flex items-center justify-center font-medium rounded-md bg-teal-500 text-white uppercase">Login</Link>
-                        </li>
-                    </ul>
-                    <button data-collapse="menu-collapse" type="button" className="collapse-btn inline-flex items-center ms-2 text-dark dark:text-white lg_992:hidden" onClick={() =>setManu(!manu)}>
-                        <span className="sr-only">Navigation Menu</span>
-                        <i className="mdi mdi-menu text-[24px]"></i>
-                    </button>
-                </div> */}
-
         <div
-          className={`navigation lg_992:order-1 lg_992:flex  ms-auto ${
+          className={`navigation lg_992:order-1 lg_992:flex ms-auto ${
             manu ? "" : "hidden"
           }`}
           id="menu-collapse"
@@ -57,7 +50,7 @@ export default function NavLight() {
           <ul className="navbar-nav nav-light sidebar-nav" id="navbar-navlist">
             <li className="nav-item">
               <Link1
-                className="nav-link ms-0"
+                className={`nav-link ms-0 ${scroll ? "text-white" : ""}`}
                 to="home"
                 smooth={true}
                 duration={1000}
